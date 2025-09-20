@@ -4,7 +4,7 @@ import QRStudio from "./components/QRStudio.vue";
 </script>
 
 <template>
-  <div class="w-full h-full flex flex-col gap-8 items-center justify-center">
+  <div class="w-full h-full flex flex-col gap-8 justify-start items-center pt-6 md:justify-center md:pt-0">
     <h1 class="inline-flex gap-4 items-center font-medium text-lg text-gray-500">
       <qr-code-icon :size="24" /> QR Code Generator
     </h1>

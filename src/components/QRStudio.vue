@@ -125,7 +125,7 @@ const uploadImage = () => {
 
 <template>
   <div
-    class="flex flex-col w-[480px] bg-white border-1 border-gray-100 rounded-lg shadow-sm overflow-hidden"
+    class="flex flex-col w-full md:w-[480px] bg-white border-1 border-gray-100 rounded-lg shadow-sm overflow-hidden"
   >
     <!-- Header -->
     <div
@@ -139,7 +139,7 @@ const uploadImage = () => {
       <input
         type="text"
         :placeholder="placeholder"
-        class="flex-1 text-sm outline-none h-full"
+        class="flex-1 text-sm outline-none h-full min-w-0"
         v-model="qrData"
         autofocus
       />
