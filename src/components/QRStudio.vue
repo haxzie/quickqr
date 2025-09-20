@@ -4,11 +4,13 @@ import { QrcodeCanvas } from "qrcode.vue";
 import { ref, computed } from "vue";
 import DropDown from "./DropDown.vue";
 import { QROptions } from "../utils/options";
+import QRInput from "./QRInput.vue";
 
 interface ImageOptions {
   src: string;
   width: number;
   height: number;
+  excavate: boolean;
 }
 
 const qrData = ref("");
@@ -106,6 +108,7 @@ const uploadImage = () => {
                 src: reader.result as string,
                 width: 50,
                 height: 50,
+                excavate: true
               };
               console.log(imageOptions.value);
             };
@@ -136,12 +139,10 @@ const uploadImage = () => {
         :selectedOption="selectedOption!"
         @selectOption="handleOptionSelect"
       />
-      <input
-        type="text"
-        :placeholder="placeholder"
-        class="flex-1 text-sm outline-none h-full min-w-0"
-        v-model="qrData"
-        autofocus
+      <QRInput 
+        :value="qrData" 
+        :onChange="(value: string) => qrData = value"
+        :placeholder="placeholder" 
       />
       <div class="flex gap-4">
         <button
@@ -164,8 +165,8 @@ const uploadImage = () => {
     >
       <QrcodeCanvas
         :value="finalQRValue"
-        level="H"
         :size="256"
+        level="L"
         id="qr-canvas"
         :image-settings="imageOptions ?? undefined"
       />
